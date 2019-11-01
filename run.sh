@@ -1,6 +1,7 @@
 sudo apt update
 sudo apt -y upgrade
-sudo apt -y install git emacs25 htop xclip
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt -y install git emacs26 htop xclip global
 
 echo "Setting up git and github..."
 git config --global user.name pikapalasokeri
@@ -28,6 +29,7 @@ git clone git@github.com:pikapalasokeri/newenv.git
 git clone git@github.com:pikapalasokeri/tools.git
 
 NEWENV_DIR=${PWD}/newenv
+TOOLS_DIR=${PWD}/tools
 popd
 
 # Bashrc and aliases
@@ -35,3 +37,40 @@ mv ~/.bashrc ~/.bashrc_bak
 ln -s ${NEWENV_DIR}/dot_bashrc ~/.bashrc
 ln -s ${NEWENV_DIR}/dot_bash_aliases ~/.bash_aliases
 
+# Bin
+mkdir -p ~/bin
+ln -s ${TOOLS_DIR}/s.py ~/bin/s.py
+ln -s ${TOOLS_DIR}/easyplot.py ~/bin/easyplot.py
+
+# Spacemacs
+mv ~/.emacs.d ~/.emacs.d_bak
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+
+# Gtags
+${NEWENV_DIR}/setup_gtags.sh ${NEWENV_DIR}
+ln -s ${NEWENV_DIR}/cron_create_gtags.sh ~/bin/cron_create_gtags.sh
+ln -s ${NEWENV_DIR}/create_gtags.sh ~/bin/create_gtags.sh
+
+# Crontab
+cp ${NEWENV_DIR}/crontab_template ${NEWENV_DIR}/crontab
+USER=$(whoami)
+sed "s/__USER__/${USER}/g" -i ${NEWENV_DIR}/crontab
+sudo mv ${NEWENV_DIR}/crontab /etc/crontab
+
+
+
+echo "Automated steps done."
+echo "Manual steps:"
+echo " * Install vimium for Firefox."
+echo " * Add repos to cron_create_gtags.sh."
+echo " * Copy password database container."
+
+# TODO:
+# dotspacemacs customizations
+# emacs daemon systemd
+# keyboard capslock->ctrl, maybe some info in https://linoxide.com/linux-how-to/configure-keyboard-ubuntu/
+# add us keyboard layout, maybe some info in https://linoxide.com/linux-how-to/configure-keyboard-ubuntu/
+# dropbox
+# keepass
+# vimium

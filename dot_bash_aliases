@@ -12,5 +12,6 @@ alias ...........='cd ../../../../../../../../../..'
 alias ............='cd ../../../../../../../../../../..'
 alias .............='cd ../../../../../../../../../../../..'
 
-alias s='~/src/tools/s.py'
-alias plot='~/src/tools/easyplot.py'
+alias s='~/bin/s.py'
+alias plot='~/bin/easyplot.py'
+alias e='emacsclient -c'
