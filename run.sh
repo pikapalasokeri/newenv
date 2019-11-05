@@ -42,10 +42,9 @@ mkdir -p ~/bin
 ln -s ${TOOLS_DIR}/s.py ~/bin/s.py
 ln -s ${TOOLS_DIR}/easyplot.py ~/bin/easyplot.py
 
-# Spacemacs
+# Spacemacs without customizations
 mv ~/.emacs.d ~/.emacs.d_bak
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
 
 # Gtags
 ${NEWENV_DIR}/setup_gtags.sh ${NEWENV_DIR}
@@ -70,6 +69,8 @@ echo "Manual steps:"
 echo " * Install vimium for Firefox."
 echo " * Add repos to cron_create_gtags.sh."
 echo " * Copy password database container."
+echo " * Customize spacemacs."
+echo " * Set alt-tab behavior to something reasonable."
 
 # TODO:
 # dotspacemacs customizations
