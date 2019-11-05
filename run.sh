@@ -58,6 +58,11 @@ USER=$(whoami)
 sed "s/__USER__/${USER}/g" -i ${NEWENV_DIR}/crontab
 sudo mv ${NEWENV_DIR}/crontab /etc/crontab
 
+# Keyboard
+sudo mv /usr/share/X11/xkb/symbols/altwin /usr/share/X11/xkb/symbols/altwin_bak
+sudo mv /usr/share/X11/xkb/symbols/pc /usr/share/X11/xkb/symbols/pc_bak
+sudo cp ${NEWENV_DIR}/altwin /usr/share/X11/xkb/symbols/
+sudo cp ${NEWENV_DIR}/pc /usr/share/X11/xkb/symbols/
 
 
 echo "Automated steps done."
