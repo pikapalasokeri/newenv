@@ -1,7 +1,7 @@
 sudo apt update
 sudo apt -y upgrade
 sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt -y install git emacs26 htop xclip global meld libavcodec-extra
+sudo apt -y install git emacs26 htop xclip global meld libavcodec-extra tkcvs
 
 echo "Setting up git and github..."
 git config --global user.name pikapalasokeri
