@@ -1,7 +1,7 @@
 sudo apt update
 sudo apt -y upgrade
 sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt -y install git emacs26 htop xclip global meld libavcodec-extra tkcvs python3-pip firejail keepass2
+sudo apt -y install git emacs26 htop xclip global meld libavcodec-extra tkcvs python3-pip firejail keepass2 bmon
 pip3 install pandas matplotlib scipy requests influxdb websockets --user
 
 echo "Setting up git and github..."
